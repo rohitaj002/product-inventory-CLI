@@ -2,10 +2,11 @@ package store
 
 import (
 	"context"
-	"inventory-cli/internal/domain"
 	"os"
 	"sync"
 	"testing"
+
+	"github.com/rohitaj002/product-inventory-CLI/internal/domain"
 )
 
 func TestInMemoryStore_CRUD(t *testing.T) {

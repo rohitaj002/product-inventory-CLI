@@ -102,9 +102,15 @@ docker run --rm -v $(pwd)/data:/data inventory-cli:latest create \
   --store json --db-file /data/products.json
 ```
 
-## Design Decisions
+## Project Structure
 
-*   **Architecture**: Follows standard Go layout (`cmd`, `internal`, `pkg`). Domain logic is isolated in `internal/domain`.
-*   **Dependency Injection**: `StoreFactory` creates specific store implementations satisfying `ProductStore` interface.
-*   **Concurrency**: `InMemoryStore` uses `sync.RWMutex` for thread safety. Bulk import uses worker pool pattern.
-*   **Configuration**: Viper handles configuration precedence (Flag > Env > Config File > Default).
+*   `cmd/inventory-cli/`: CLI entry point and command definitions.
+*   `internal/domain/`: Core business logic and product models.
+*   `internal/store/`: Implementation of different storage backends (In-memory, JSON).
+
+## Design Choices
+
+*   **Concurrency**: Uses `RWMutex` for safe concurrent operations and worker pools for bulk imports.
+*   **Dependency Injection**: Easily switch between storage backends using the factory pattern.
+*   **Configuration**: Built with Viper to handle flags, environment variables, and config files seamlessly.
+

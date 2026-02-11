@@ -4,9 +4,10 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"inventory-cli/internal/domain"
 	"log/slog"
 	"sync"
+
+	"github.com/rohitaj002/product-inventory-CLI/internal/domain"
 )
 
 type InMemoryStore struct {
@@ -129,7 +130,7 @@ func (s *InMemoryStore) List(ctx context.Context, filter domain.ListFilter) ([]d
 	return result, nil
 }
 
-// BulkImport implements concurrent import as per Task 6
+// BulkImport implements concurrent import with worker pool.
 func (s *InMemoryStore) BulkImport(ctx context.Context, products []domain.Product) error {
 	select {
 	case <-ctx.Done():
@@ -171,8 +172,7 @@ func (s *InMemoryStore) BulkImport(ctx context.Context, products []domain.Produc
 				err := s.Create(ctx, p)
 
 				// If Create fails (e.g. duplicate), we might want to return error or ignore?
-				// Task 6 says: "Handles partial failures gracefully" and "Collects and aggregates results"
-				// For this implementation, we'll pipe errors to results
+				// Handle partial failures and collect results.
 				results <- err
 			}
 		}()

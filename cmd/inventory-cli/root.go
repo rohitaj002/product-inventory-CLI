@@ -3,8 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
-	"inventory-cli/internal/store"
 	"os"
+
+	"github.com/rohitaj002/product-inventory-CLI/internal/store"
 
 	"log/slog"
 

@@ -1,4 +1,4 @@
-module inventory-cli
+module github.com/rohitaj002/product-inventory-CLI
 
 go 1.25.6
 

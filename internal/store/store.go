@@ -2,7 +2,8 @@ package store
 
 import (
 	"context"
-	"inventory-cli/internal/domain"
+
+	"github.com/rohitaj002/product-inventory-CLI/internal/domain"
 )
 
 // ProductStore defines the interface for product storage operations.

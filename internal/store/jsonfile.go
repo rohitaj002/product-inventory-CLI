@@ -4,9 +4,10 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"inventory-cli/internal/domain"
 	"os"
 	"sync"
+
+	"github.com/rohitaj002/product-inventory-CLI/internal/domain"
 )
 
 // JSONFileStore extends InMemoryStore with JSON file persistence.

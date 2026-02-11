@@ -3,9 +3,10 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"inventory-cli/internal/domain"
 	"os"
 	"text/tabwriter"
+
+	"github.com/rohitaj002/product-inventory-CLI/internal/domain"
 
 	"github.com/google/uuid"
 	"github.com/spf13/cobra"
@@ -31,15 +32,11 @@ func init() {
 	listCmd.Flags().Float64("max-price", 0, "Maximum price")
 	listCmd.Flags().Bool("json", false, "Output in JSON format")            // --json flag
 	listCmd.Flags().String("output", "table", "Output format (table|json)") // --output flag overrides --json if set?
-	// readme says: Implement --output json flag
-	// I'll stick to --output string with default "table"
+	// Supports table (default) and json output format.
 	rootCmd.AddCommand(listCmd)
 
-	// Update Command
 	updateCmd.Flags().String("name", "", "New product name")
-	updateCmd.Flags().Float64("price", -1, "New product price (set to -1 to ignore if 0 is valid, but price usually > 0. Let's use pointer or check changed)")
-	// Cobra flags have default values.
-	// A better way is Changed() method on flag.
+	updateCmd.Flags().Float64("price", -1, "New product price")
 	updateCmd.Flags().Int("quantity", -1, "New product quantity")
 	updateCmd.Flags().String("category", "", "New product category")
 	rootCmd.AddCommand(updateCmd)
