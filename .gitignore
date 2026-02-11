@@ -1,0 +1,22 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+bin/
+inventory-cli
+
+# Data Store
+*.json
+!data.json
+!demo_seed.json
+
+# Logs
+*.log
+*.txt
+!task.txt
+!readme.md
+
+# IDEs
+.vscode/
+.idea/
