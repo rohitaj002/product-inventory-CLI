@@ -1,0 +1,16 @@
+[
+    {
+        "id": "demo-id-1",
+        "name": "Mechanical Keyboard",
+        "price": 150.00,
+        "quantity": 10,
+        "category": "Peripherals"
+    },
+    {
+        "id": "demo-id-2",
+        "name": "Gaming Mouse",
+        "price": 80.00,
+        "quantity": 25,
+        "category": "Peripherals"
+    }
+]

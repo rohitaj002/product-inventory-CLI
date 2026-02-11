@@ -1,0 +1,16 @@
+{
+  "cf560841-dc46-477f-b754-6d3bec33d6b7": {
+    "id": "cf560841-dc46-477f-b754-6d3bec33d6b7",
+    "name": "Webcam",
+    "price": 45,
+    "quantity": 5,
+    "category": "Electronics"
+  },
+  "demo-id-1": {
+    "id": "demo-id-1",
+    "name": "Mechanical Keyboard",
+    "price": 145,
+    "quantity": 10,
+    "category": "Peripherals"
+  }
+}
